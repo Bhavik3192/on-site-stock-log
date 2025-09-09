@@ -8,6 +8,7 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import StatsCard from '@/components/StatsCard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -82,6 +83,8 @@ const quickActions = [
 ];
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-6">
       {/* Hero Section */}
@@ -104,6 +107,7 @@ export default function Dashboard() {
                   key={action.label}
                   variant={action.variant}
                   className="shadow-medium"
+                  onClick={() => navigate(action.href)}
                 >
                   {action.label}
                 </Button>
